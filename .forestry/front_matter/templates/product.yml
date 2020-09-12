@@ -2,21 +2,21 @@
 label: product
 hide_body: false
 fields:
-  - type: text
-    name: title
-    label: Title
-    description: product title
-  - type: textarea
-    name: description
-    label: Description
-    description: product description
-  - type: file
-    name: image
-    label: Image
-    description: product image
-  - name: price
-    type: number
-    label: Price
-    description: item price
-    default: 0
-    required: true
+- type: text
+  name: title
+  label: Title
+  description: product title
+- type: textarea
+  name: description
+  label: Description
+  description: product description
+- type: file
+  name: image
+  label: Image
+  description: product image
+- name: price
+  type: number
+  label: Price
+  description: item price
+  default: 0
+  required: true
