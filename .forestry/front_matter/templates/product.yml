@@ -21,4 +21,5 @@ fields:
   default: 0
   required: true
 pages:
+- content/products/shoe-1-title.md
 - content/products/test-cms.md
