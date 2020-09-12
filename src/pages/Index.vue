@@ -1,21 +1,22 @@
 <template>
   <Layout>
-    <g-image alt="Example image" src="~/assets/img/favicon.png" width="135" />
-
-    <div v-for="product in $page.allProduct.edges" :key="product.id">
-      <h1>{{ product.node.title }}</h1>
-
-      <g-image
-        :src="product.node.image"
-        :alt="product.node.title"
-        class="thumbnail"
+    <div class="grid">
+      <Shoe
+        v-for="product in $page.allProduct.edges"
+        :key="product.id"
+        :shoe="product.node"
       />
     </div>
   </Layout>
 </template>
 
 <script>
+import Shoe from '~/components/Shoe.vue';
+
 export default {
+  components: {
+    Shoe,
+  },
   metaInfo: {
     title: 'Hello, world!',
   },
@@ -40,5 +41,14 @@ query product {
 <style>
 .home-links a {
   margin-right: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1em;
+  @media (max-width: 796px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 </style>

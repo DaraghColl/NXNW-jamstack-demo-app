@@ -9,5 +9,9 @@
   "dependencies": {
     "@gridsome/vue-remark": "^0.2.4",
     "gridsome": "^0.7.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1",
+    "sass-loader": "^9.0.2"
   }
 }
