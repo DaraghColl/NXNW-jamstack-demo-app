@@ -1,0 +1,13 @@
+{
+  "name": "shoe-store-nxnw",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "@gridsome/vue-remark": "^0.2.4",
+    "gridsome": "^0.7.0"
+  }
+}
