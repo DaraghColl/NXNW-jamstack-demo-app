@@ -20,3 +20,5 @@ fields:
   description: item price
   default: 0
   required: true
+pages:
+- content/products/test-cms.md
