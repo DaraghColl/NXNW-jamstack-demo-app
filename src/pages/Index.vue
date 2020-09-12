@@ -4,11 +4,11 @@
 
     <div v-for="product in $page.allProduct.edges" :key="product.id">
       <h1>{{ product.node.title }}</h1>
-      <!-- <g-image
+      <g-image
         class="project__img"
         :src="product.node.image"
         alt="project image"
-      /> -->
+      />
     </div>
   </Layout>
 </template>
