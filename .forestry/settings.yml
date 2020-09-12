@@ -11,7 +11,7 @@ sections:
     match: '**/*.md'
     new_doc_ext: md
     templates:
-      - post
+      - product
 upload_dir: src/assets/uploads
 public_path: 'src/assets/uploads'
 front_matter_path: ''
