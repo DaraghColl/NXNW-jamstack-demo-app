@@ -2,6 +2,7 @@
   <Layout>
     <Cart />
     <!-- store -->
+    <h1 class="heading">Store</h1>
     <div class="grid">
       <Shoe
         v-for="product in $page.allProduct.edges"
@@ -56,7 +57,12 @@ query product {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 1em;
+}
+
+.heading {
+  text-align: center;
+  font-size: 2em;
 }
 </style>

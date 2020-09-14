@@ -78,7 +78,7 @@ export default {
   .shoe__image-bubble {
     width: 170px;
     height: 170px;
-    background: #0d47a1;
+    background: #5469d4;
     position: absolute;
     border-radius: 50%;
     z-index: 1;
@@ -99,9 +99,9 @@ export default {
     justify-content: space-around;
     align-items: center;
     .shoe__button {
-      background: #0d47a1;
+      background: #5469d4;
       color: #fff;
-      border: 1px solid #0d47a1;
+      border: 1px solid #5469d4;
       padding: 0.4em;
       border-radius: 3px;
       font-weight: bold;

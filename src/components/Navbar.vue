@@ -43,7 +43,7 @@ export default {
   transition: 0.5s;
 
   &:hover {
-    border-bottom: 4px solid #0d47a1;
+    border-bottom: 4px solid #5469d4;
     transition: 0.5s;
     cursor: pointer;
   }
