@@ -1,5 +1,6 @@
 <template>
   <Layout>
+    <Cart />
     <!-- store -->
     <div class="grid">
       <Shoe
@@ -18,11 +19,13 @@
 <script>
 import Shoe from '~/components/Shoe.vue';
 import Contact from '~/components/Contact.vue';
+import Cart from '~/components/Cart.vue';
 
 export default {
   components: {
     Shoe,
     Contact,
+    Cart,
   },
   metaInfo: {
     title: 'Hello, world!',
@@ -53,10 +56,7 @@ query product {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-gap: 1em;
-  @media (max-width: 796px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
 }
 </style>

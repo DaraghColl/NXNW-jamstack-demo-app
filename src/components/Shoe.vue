@@ -1,17 +1,26 @@
 <template>
-  <div class="shoe">
-    <g-image :src="shoe.image" :alt="shoe.title" class="shoe__image" />
-    <div class="shoe__info">
-      <h2 class="shoe__title">{{ shoe.title }}</h2>
-      <h3 class="shoe__description">{{ shoe.description }}</h3>
-      <div class="shoe__info-footer">
-        <h4 class="shoe__price">Price: {{ shoe.price }}</h4>
-        <button class="shoe__add" v-on:click="addToCart(shoe)">
-          Add to Cart
-        </button>
-        <button class="shoe__add" v-on:click="removeFromCart(shoe)">
-          Remove
-        </button>
+  <div>
+    <div class="shoe">
+      <div>
+        <div class="shoe__image-bubble"></div>
+        <g-image :src="shoe.image" :alt="shoe.title" class="shoe__image" />
+      </div>
+      <div class="shoe__info">
+        <h2 class="shoe__title">{{ shoe.title }}</h2>
+        <h3 class="shoe__description">{{ shoe.description }}</h3>
+        <div class="shoe__info-footer">
+          <h4 class="shoe__price">Price: {{ shoe.price }}</h4>
+          <button class="shoe__button" v-on:click="addToCart(shoe)">
+            Add to Cart
+          </button>
+          <button
+            class="shoe__button"
+            v-if="isCart"
+            v-on:click="removeFromCart(shoe)"
+          >
+            Remove from Cart
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -21,8 +30,8 @@
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
-  props: ['shoe'],
-  computed: mapGetters(['items']),
+  props: ['shoe', 'isCart'],
+  computed: mapGetters(['items', 'cartStatus']),
   methods: {
     ...mapActions(['addToCart', 'removeFromCart']),
   },
@@ -41,13 +50,26 @@ export default {
   padding: 1em;
 
   &:hover .shoe__image {
-    transform: scale(1.3);
+    transform: scale(1.2);
     transition: 0.5s;
   }
 
   .shoe__image {
-    max-width: 150px;
+    max-width: 200px;
     transition: 0.5s;
+    position: relative;
+    z-index: 100;
+  }
+
+  .shoe__image-bubble {
+    width: 170px;
+    height: 170px;
+    background: #0d47a1;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+    margin-top: px;
+    margin-left: 20px;
   }
 
   .shoe__title {
@@ -62,7 +84,7 @@ export default {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    .shoe__add {
+    .shoe__button {
       background: #0d47a1;
       color: #fff;
       border: 1px solid #0d47a1;
