@@ -44,7 +44,7 @@ const mutations = {
     removeFromCart: (state, item) => {
         state.items.splice(state.items.findIndex((element) => {
             return element.id === item.id;
-        }));
+        }), 1);
     }
 };
 
