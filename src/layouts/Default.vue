@@ -2,12 +2,13 @@
   <div class="layout">
     <header class="header">
       <strong>
-        <g-link to="/">{{ $static.metadata.siteName }}</g-link>
+        <g-link class="nav-item" to="/">JAMSTACK</g-link>
       </strong>
       <nav class="nav">
-        <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/about/">About</g-link>
-        🛒
+        <g-link class="nav-item" to="/#store">STORE</g-link>
+        <g-link class="nav-item" to="/blog">BLOG</g-link>
+        <g-link class="nav-item" to="/contact">CONTACT</g-link>
+        <g-link class="nav-item" to="/cart">🛒</g-link>
       </nav>
     </header>
     <slot />
@@ -22,7 +23,7 @@ query {
 }
 </static-query>
 
-<style>
+<style lang="scss">
 body {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, sans-serif;
@@ -46,7 +47,22 @@ body {
   height: 80px;
 }
 
-.nav__link {
+.nav-item {
+  text-decoration: none;
+  border-bottom: 4px solid transparent;
+  font-weight: bold;
+  color: #000;
   margin-left: 20px;
+  transition: 0.5s;
+
+  &:hover {
+    border-bottom: 4px solid #0d47a1;
+    transition: 0.5s;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
 }
 </style>

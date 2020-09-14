@@ -1,21 +1,28 @@
 <template>
   <Layout>
+    <!-- store -->
     <div class="grid">
       <Shoe
         v-for="product in $page.allProduct.edges"
         :key="product.id"
         :shoe="product.node"
+        id="store"
       />
     </div>
+
+    <!-- contact -->
+    <Contact />
   </Layout>
 </template>
 
 <script>
 import Shoe from '~/components/Shoe.vue';
+import Contact from '~/components/Contact.vue';
 
 export default {
   components: {
     Shoe,
+    Contact,
   },
   metaInfo: {
     title: 'Hello, world!',
@@ -28,6 +35,7 @@ query product {
   allProduct {
     edges {
       node {
+        id,
         title,
         description,
         image,
@@ -38,7 +46,7 @@ query product {
 }
 </page-query>
 
-<style>
+<style lang="scss">
 .home-links a {
   margin-right: 1rem;
 }
