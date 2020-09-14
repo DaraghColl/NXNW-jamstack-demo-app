@@ -7,7 +7,9 @@
       <g-link class="nav-item" to="/#store">STORE</g-link>
       <g-link class="nav-item" to="/blog">BLOG</g-link>
       <g-link class="nav-item" to="/contact">CONTACT</g-link>
-      <span class="nav-item" v-on:click="toggleCart(!cartStatus)">🛒</span>
+      <span class="nav-item" v-on:click="toggleCart(!cartStatus)"
+        >🛒 <span>{{ items.length }}</span></span
+      >
     </nav>
   </header>
 </template>
@@ -16,7 +18,7 @@
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
-  computed: mapGetters(['cartStatus']),
+  computed: mapGetters(['cartStatus', 'items']),
   methods: {
     ...mapActions(['toggleCart']),
   },

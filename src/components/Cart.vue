@@ -65,7 +65,7 @@ export default {
   height: 100vh;
   z-index: 999;
   padding: 3rem 20px 2rem 20px;
-  width: 80vw;
+  width: 50vw;
   @media (max-width: 986px) {
     width: 90%;
   }
