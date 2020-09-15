@@ -52,6 +52,13 @@ export default {
 .nav {
   display: flex;
   align-items: center;
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: space-around;
+    .nav-item {
+      margin: 0;
+    }
+  }
 }
 
 .logo {
