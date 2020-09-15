@@ -38,7 +38,11 @@ const mutations = {
     },
 
     addToCart: (state, item) => {
-        state.items.push(item);
+        const itemEqualToItem = element => element.id === item.id;
+
+        if (!state.items.some(itemEqualToItem)) {
+            state.items.push(item);
+        }
     },
 
     removeFromCart: (state, item) => {

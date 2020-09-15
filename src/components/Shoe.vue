@@ -12,23 +12,12 @@
           <h4 class="shoe__price">Price: {{ shoe.price }}</h4>
           <button
             class="shoe__button"
-            v-if="!isCart"
             v-on:click="
               addToCart(shoe);
               toast('Item added to cart');
             "
           >
             Add to Cart
-          </button>
-          <button
-            class="shoe__button"
-            v-if="isCart"
-            v-on:click="
-              removeFromCart(shoe);
-              toast('Item removed from cart');
-            "
-          >
-            Remove from Cart
           </button>
         </div>
       </div>
@@ -40,7 +29,7 @@
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
-  props: ['shoe', 'isCart'],
+  props: ['shoe'],
   computed: mapGetters(['items', 'cartStatus']),
   methods: {
     ...mapActions(['addToCart', 'removeFromCart']),
@@ -68,6 +57,10 @@ export default {
     transition: 0.5s;
   }
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
   .shoe__image {
     max-width: 200px;
     transition: 0.5s;
@@ -92,6 +85,13 @@ export default {
   .shoe__description {
     margin-top: 0;
     font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .shoe__title,
+    .shoe__description {
+      text-align: center;
+    }
   }
 
   .shoe__info-footer {

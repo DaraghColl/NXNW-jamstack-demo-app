@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <strong>
+    <strong class="logo">
       <g-link class="nav-item" to="/">JAMSTACK</g-link>
     </strong>
     <nav class="nav">
@@ -52,5 +52,11 @@ export default {
 .nav {
   display: flex;
   align-items: center;
+}
+
+.logo {
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 </style>

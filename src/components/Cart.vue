@@ -2,22 +2,29 @@
   <div class="sidebar">
     <transition name="slide">
       <div v-if="cartStatus" class="sidebar__panel">
-        <span class="sidebar__close" v-on:click="toggleCart(false)">✖️</span>
-        <br />
         <div class="sidebar__header">
-          Checkout
+          <h4>Your Items</h4>
+          <span class="sidebar__close" v-on:click="toggleCart(false)">✖️</span>
         </div>
-        <h1 v-if="items.length < 1">Cart is empty</h1>
         <div class="sidebar__body">
-          <Shoe
+          <CartItems
             v-for="item in items"
             :key="item.id"
-            :shoe="item"
+            :item="item"
             :isCart="true"
           />
         </div>
-
-        <slot></slot>
+        <div class="sidebar__footer">
+          <div class="sidebar__footer__total">
+            <h4>Estimated Total</h4>
+            <h4>65</h4>
+          </div>
+          <div class="sidebar__checkout">
+            <button class="checkout__button">
+              Checkout
+            </button>
+          </div>
+        </div>
       </div>
     </transition>
   </div>
@@ -26,10 +33,11 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import Shoe from '~/components/Shoe.vue';
+import CartItems from '~/components/CartItems.vue';
 
 export default {
   components: {
-    Shoe,
+    CartItems,
   },
   computed: mapGetters(['items', 'cartStatus']),
   methods: {
@@ -60,44 +68,57 @@ export default {
   top: 0;
   height: 100vh;
   z-index: 999;
-  width: 50vw;
-  @media (max-width: 986px) {
-    width: 90%;
+  width: 30vw;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 100%;
   }
 }
 
 .sidebar__header {
-  color: #fff;
-  font-size: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
   border-bottom: 2px solid #fff;
-  padding: 1em;
+
+  h4 {
+    color: #fff;
+  }
+  .sidebar__close {
+    cursor: pointer;
+  }
 }
+
 .sidebar__body {
-  padding: 3rem 20px 2rem 20px;
+  min-height: 50px;
 }
 
-.sidebar__close {
-  position: absolute;
-  right: 10px;
-  top: 20px;
-  cursor: pointer;
-}
+.sidebar__footer {
+  padding: 0 20px;
+  border-top: 2px solid #fff;
 
-// override shoe card styles
-.shoe {
-  padding: 0;
-  &:hover .shoe__image {
-    transform: scale(1);
+  .sidebar__footer__total {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2em;
+    color: #fff;
   }
 
-  .shoe__image {
-    max-width: 100px;
-    z-index: 100;
-  }
-
-  .shoe__image-bubble {
-    width: 85px;
-    height: 85px;
+  .sidebar__checkout {
+    display: flex;
+    justify-content: space-around;
+    button {
+      background: #fff;
+      width: 200px;
+      color: #5469d4;
+      border: 1px solid #fff;
+      padding: 0.4em;
+      border-radius: 3px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 0.3em;
+    }
   }
 }
 </style>
