@@ -59,6 +59,9 @@ query product {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1em;
+  @media (max-width: 978px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .heading {
