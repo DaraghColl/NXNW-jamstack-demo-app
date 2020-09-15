@@ -34,7 +34,7 @@ export default {
   methods: {
     ...mapActions(['addToCart', 'removeFromCart']),
     toast(message) {
-      this.$toast(message);
+      this.$toasted.show(message);
     },
   },
 };

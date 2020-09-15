@@ -68,4 +68,11 @@ query product {
   text-align: center;
   font-size: 2em;
 }
+
+.toasted-container .toasted {
+  font-weight: bold;
+  line-height: 2em;
+  font-size: 20px;
+  border-radius: 5px;
+}
 </style>
