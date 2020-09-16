@@ -5,10 +5,16 @@ import store from './store/index';
 
 export default function (Vue, {
   appOptions,
+  head
 }) {
   Vue.component('Layout', DefaultLayout)
 
   Vue.use(Vuex);
   appOptions.store = store;
+
+  head.script.push({
+    src: 'https://js.stripe.com/v3/',
+    body: true
+  })
 
 }

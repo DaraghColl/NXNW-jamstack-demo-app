@@ -25,6 +25,7 @@
             </button>
           </div>
         </div>
+        <Payment />
       </div>
     </transition>
   </div>
@@ -34,10 +35,12 @@
 import { mapGetters, mapActions } from 'vuex';
 import Shoe from '~/components/Shoe.vue';
 import CartItems from '~/components/CartItems.vue';
+import Payment from '~/components/Payment.vue';
 
 export default {
   components: {
     CartItems,
+    Payment,
   },
   computed: mapGetters(['items', 'cartStatus']),
   methods: {

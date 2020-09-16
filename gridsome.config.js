@@ -1,7 +1,6 @@
 module.exports = {
   siteName: 'Gridsome',
-  plugins: [
-    {
+  plugins: [{
       use: '@gridsome/vue-remark',
       options: {
         typeName: 'Product',
@@ -14,7 +13,7 @@ module.exports = {
       options: {
         position: 'top-right',
         singleton: true,
-        duration: 2500,
+        duration: 1000000,
       },
     },
   ],
