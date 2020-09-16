@@ -39,7 +39,7 @@ export default {
       console.log(this.token);
       this.charge = {
         source: 'tok_us',
-        amount: 1000,
+        amount: 1200,
         description: 'testing charge',
       };
       this.sendTokenToServer(this.charge);
