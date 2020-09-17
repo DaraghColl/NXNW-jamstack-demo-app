@@ -20,7 +20,19 @@ const actions = {
     addToCart({
         commit
     }, item) {
-        commit('addToCart', item);
+        const itemEqualToItem = element => element.id === item.id;
+
+        // if item does / doesnt exist in cart
+        if (!state.items.some(itemEqualToItem)) {
+            commit('addToCart', item);
+            return new Promise((resolve, reject) => {
+                resolve(true)
+            })
+        } else {
+            return new Promise((resolve, reject) => {
+                resolve(false)
+            })
+        }
     },
 
     // remove item
@@ -34,15 +46,10 @@ const actions = {
 const mutations = {
     toggleCart: (state, status) => {
         state.cartStatus = status;
-        console.log(state.cartStatus)
     },
 
     addToCart: (state, item) => {
-        const itemEqualToItem = element => element.id === item.id;
-
-        if (!state.items.some(itemEqualToItem)) {
-            state.items.push(item);
-        }
+        state.items.push(item);
     },
 
     removeFromCart: (state, item) => {

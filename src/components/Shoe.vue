@@ -10,13 +10,7 @@
         <h3 class="shoe__description">{{ shoe.description }}</h3>
         <div class="shoe__info-footer">
           <h4 class="shoe__price">Price: {{ shoe.price }}</h4>
-          <button
-            class="shoe__button"
-            v-on:click="
-              addToCart(shoe);
-              toast('Item added to cart');
-            "
-          >
+          <button class="shoe__button" v-on:click="addItemToCart(shoe)">
             Add to Cart
           </button>
         </div>
@@ -33,6 +27,15 @@ export default {
   computed: mapGetters(['items', 'cartStatus']),
   methods: {
     ...mapActions(['addToCart', 'removeFromCart']),
+    addItemToCart(item) {
+      this.$store.dispatch('addToCart', item).then(res => {
+        if (res === true) {
+          this.toast('Item added to cart');
+        } else if (res === false) {
+          this.toast('Item already added to cart');
+        }
+      });
+    },
     toast(message) {
       this.$toasted.show(message);
     },

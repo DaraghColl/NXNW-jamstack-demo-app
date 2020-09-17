@@ -13,7 +13,7 @@ module.exports = {
       options: {
         position: 'top-right',
         singleton: true,
-        duration: 1000000,
+        duration: 1500,
       },
     },
   ],
