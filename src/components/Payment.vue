@@ -12,15 +12,17 @@
       </div>
     </div>
     <div v-if="purchase">
-      <stripe-elements
-        ref="elementsRef"
-        :pk="publishableKey"
-        :amount="amount"
-        locale="auto"
-        @token="tokenCreated"
-        @loading="loading = $event"
-      >
-      </stripe-elements>
+      <ClientOnly>
+        <stripe-elements
+          ref="elementsRef"
+          :pk="publishableKey"
+          :amount="amount"
+          locale="auto"
+          @token="tokenCreated"
+          @loading="loading = $event"
+        >
+        </stripe-elements>
+      </ClientOnly>
       <div class="btn-wrapper">
         <button class="btn" @click="submit">
           Purchase
@@ -31,13 +33,17 @@
 </template>
 
 <script>
-import { StripeElements } from 'vue-stripe-checkout';
+// import { StripeElements } from 'vue-stripe-checkout';
 import axios from 'axios';
 
 export default {
   props: ['items', ' cartOpen'],
   components: {
-    StripeElements,
+    // StripeElements,
+    StripeElements: () =>
+      import('vue-stripe-checkout')
+        .then(m => m.StripeElements)
+        .catch(),
   },
   data: () => ({
     loading: false,
