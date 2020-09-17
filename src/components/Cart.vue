@@ -14,18 +14,12 @@
             :isCart="true"
           />
         </div>
-        <div class="sidebar__footer">
-          <div class="sidebar__footer__total">
-            <h4>Estimated Total</h4>
-            <h4>65</h4>
-          </div>
-          <div class="sidebar__checkout">
-            <button class="checkout__button">
-              Checkout
-            </button>
-          </div>
+        <div v-if="items.length">
+          <Payment :items="items" :cartOpen="cartStatus" />
         </div>
-        <Payment />
+        <h1 class="cart-empty" v-else>
+          Cart is Empty
+        </h1>
       </div>
     </transition>
   </div>
@@ -45,6 +39,13 @@ export default {
   computed: mapGetters(['items', 'cartStatus']),
   methods: {
     ...mapActions(['toggleCart']),
+    total() {
+      items.forEach(element => {
+        let total;
+        total = total + element.price;
+        return total;
+      });
+    },
   },
 };
 </script>
@@ -97,31 +98,8 @@ export default {
   min-height: 50px;
 }
 
-.sidebar__footer {
-  padding: 0 20px;
-  border-top: 2px solid #fff;
-
-  .sidebar__footer__total {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 2em;
-    color: #fff;
-  }
-
-  .sidebar__checkout {
-    display: flex;
-    justify-content: space-around;
-    button {
-      background: #fff;
-      width: 200px;
-      color: #5469d4;
-      border: 1px solid #fff;
-      padding: 0.4em;
-      border-radius: 3px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 0.3em;
-    }
-  }
+.cart-empty {
+  color: #fff;
+  text-align: center;
 }
 </style>
