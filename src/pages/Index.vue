@@ -1,5 +1,6 @@
 <template>
   <Layout>
+    <div ref="cover" class="landing-cover"></div>
     <Cart />
     <!-- store -->
     <h1 class="heading">Store</h1>
@@ -27,6 +28,12 @@ export default {
     Shoe,
     Contact,
     Cart,
+  },
+  mounted() {
+    const { cover } = this.$refs;
+    setTimeout(() => {
+      cover.classList.add('animate-up');
+    }, 100);
   },
   metaInfo: {
     title: 'Hello, world!',
@@ -74,5 +81,22 @@ query product {
   line-height: 2em;
   font-size: 20px;
   border-radius: 5px;
+}
+
+.landing-cover {
+  z-index: 2000;
+  position: absolute;
+  background: #5469d4;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 1.5s;
+}
+
+.animate-up {
+  height: 0vh;
+  transition: 1.5s;
 }
 </style>

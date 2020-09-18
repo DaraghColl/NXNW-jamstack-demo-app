@@ -1,19 +1,17 @@
 <template>
-  <div>
-    <div class="shoe">
-      <div>
-        <div class="shoe__image-bubble"></div>
-        <g-image :src="shoe.image" :alt="shoe.title" class="shoe__image" />
-      </div>
-      <div class="shoe__info">
-        <h2 class="shoe__title">{{ shoe.title }}</h2>
-        <h3 class="shoe__description">{{ shoe.description }}</h3>
-        <div class="shoe__info-footer">
-          <h4 class="shoe__price">Price: {{ shoe.price }}</h4>
-          <button class="shoe__button" v-on:click="addItemToCart(shoe)">
-            Add to Cart
-          </button>
-        </div>
+  <div ref="card" class="shoe">
+    <div>
+      <div class="shoe__image-bubble"></div>
+      <g-image :src="shoe.image" :alt="shoe.title" class="shoe__image" />
+    </div>
+    <div class="shoe__info">
+      <h2 class="shoe__title">{{ shoe.title }}</h2>
+      <h3 class="shoe__description">{{ shoe.description }}</h3>
+      <div class="shoe__info-footer">
+        <h4 class="shoe__price">Price: {{ shoe.price }}</h4>
+        <button class="shoe__button" v-on:click="addItemToCart(shoe)">
+          Add to Cart
+        </button>
       </div>
     </div>
   </div>
@@ -40,11 +38,19 @@ export default {
       this.$toasted.show(message);
     },
   },
+  mounted() {
+    const { card } = this.$refs;
+    setTimeout(() => {
+      card.classList.add('fade-down');
+    }, 400);
+  },
 };
 </script>
 
 <style lang="scss">
 .shoe {
+  transform: translateY(-500px);
+  transition: 1.5s;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -78,7 +84,6 @@ export default {
     position: absolute;
     border-radius: 50%;
     z-index: 1;
-    margin-top: px;
     margin-left: 20px;
   }
 
@@ -112,5 +117,10 @@ export default {
       margin-left: 1em;
     }
   }
+}
+
+.fade-down {
+  transform: translateY(0);
+  transition: 1s;
 }
 </style>
