@@ -2,36 +2,62 @@
   <section id="contact-section" class="contact">
     <h1 class="heading">Contact</h1>
     <div class="contact-wrapper">
-      <!-- <form
-        class="contact__form"
-        name="contact"
-        method="POST"
-        data-netlify="true"
-      > -->
-      <form class="contact__form" name="contact">
-        <input type="hidden" name="form-name" value="contact" />
-        <input class="form__item" type="text" name="name" placeholder="Name" />
+      <div class="contact__form" name="contact">
+        <input
+          class="form__item"
+          type="text"
+          name="name"
+          placeholder="Name"
+          v-model="formData.name"
+        />
         <input
           class="form__item"
           type="email"
           name="email"
           placeholder="Email"
+          v-model="formData.email"
         />
         <textarea
           class="form__item"
           name="message"
           placeholder="Message"
+          v-model="formData.message"
         ></textarea>
         <div class="submit-form">
-          <button type="submit">Send</button>
+          <button @click="submitForm()">Send</button>
         </div>
-      </form>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
-export default {};
+import axios from 'axios';
+
+export default {
+  data: () => ({
+    formData: {
+      name: '',
+      email: '',
+      message: '',
+    },
+  }),
+  methods: {
+    submitForm() {
+      console.log(this.formData.email);
+      axios
+        .post('/.netlify/functions/contact', this.formData, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        .then(response => {
+          this.response = JSON.stringify(response);
+          console.log(this.response);
+        });
+    },
+  },
+};
 </script>
 
 <style lang="scss">

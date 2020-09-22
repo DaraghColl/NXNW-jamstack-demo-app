@@ -64,7 +64,6 @@ export default {
 
     tokenCreated(token) {
       this.token = token;
-      console.log(this.token);
       this.charge = {
         source: 'tok_us',
         amount: 1200,
@@ -81,11 +80,9 @@ export default {
         })
         .then(response => {
           this.response = JSON.stringify(response);
-          console.log(this.response);
         })
         .catch(error => {
           this.response = 'Error: ' + JSON.stringify(error);
-          console.log(this.response);
         });
     },
   },
