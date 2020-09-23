@@ -12,9 +12,4 @@ export default function (Vue, {
   Vue.use(Vuex);
   appOptions.store = store;
 
-  head.script.push({
-    src: 'https://js.stripe.com/v3/',
-    body: true
-  })
-
 }
