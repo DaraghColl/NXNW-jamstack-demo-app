@@ -2,18 +2,23 @@
   <section id="contact-section" class="contact">
     <h1 class="heading">Contact</h1>
     <div class="contact-wrapper">
-      <div class="contact__form" name="contact">
+      <form
+        id="contact-form"
+        class="contact__form"
+        name="contact"
+        @submit.prevent="sendEmail"
+      >
         <input
           class="form__item"
           type="text"
-          name="name"
+          name="from_name"
           placeholder="Name"
           v-model="formData.name"
         />
         <input
           class="form__item"
           type="email"
-          name="email"
+          name="from_email"
           placeholder="Email"
           v-model="formData.email"
         />
@@ -24,18 +29,19 @@
           v-model="formData.message"
         ></textarea>
         <div class="submit-form">
-          <button @click="submitForm()">Send</button>
+          <button type="submit">Send</button>
         </div>
-      </div>
+      </form>
     </div>
   </section>
 </template>
 
 <script>
-import axios from 'axios';
+import emailjs from 'emailjs-com';
 
 export default {
   data: () => ({
+    showEmailMessage: false,
     formData: {
       name: '',
       email: '',
@@ -43,18 +49,27 @@ export default {
     },
   }),
   methods: {
-    submitForm() {
-      console.log(this.formData.email);
-      axios
-        .post('/.netlify/functions/contact', this.formData, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
-        .then(response => {
-          this.response = JSON.stringify(response);
-          console.log(this.response);
-        });
+    sendEmail(e) {
+      let service_id = 'default_service';
+      let user_id = process.env.GRIDSOME_EMAIL_JS_USER_ID;
+      let template_id = process.env.GRIDSOME_EMAIL_JS__TEMPLATE_ID;
+
+      emailjs.sendForm(service_id, template_id, e.target, user_id).then(
+        result => {
+          this.showEmailMessage = true;
+          this.messageType = 'success';
+          let form = document.getElementById('contact-form');
+          this.$toasted.show('Email Sent!');
+          form.reset();
+        },
+        error => {
+          this.showEmailMessage = true;
+          this.messageType = 'error';
+          let form = document.getElementById('contact-form');
+          this.$toasted.show('Error Sending Email');
+          form.reset();
+        }
+      );
     },
   },
 };
