@@ -2,5 +2,5 @@
 price: 60
 title: Shoe 2 Title
 description: Shoe 2 Description
-image: '/uploads/shoe-4.png'
+image: '/uploads/shoe-2.png'
 ---
