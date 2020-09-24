@@ -9,7 +9,7 @@
         autocomplete="off"
         @submit.prevent="sendEmail"
       >
-        <label for="contact_message" class="form__label">Name</label>
+        <label for="contact_name" class="form__label">Name</label>
         <input
           id="contact_name"
           class="form__item"
@@ -18,7 +18,6 @@
           placeholder="name"
           v-model="formData.name"
         />
-        <label for="contact_message" class="form__label">Email</label>
         <input
           id="contact_email"
           class="form__item"
