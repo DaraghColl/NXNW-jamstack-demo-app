@@ -6,7 +6,7 @@
     </div>
     <div class="sidebar__footer">
       <div class="btn-wrapper">
-        <button class="btn" @click="openPayment()">
+        <button class="primary-button--reverse" @click="openPayment()">
           Checkout
         </button>
       </div>
@@ -24,7 +24,7 @@
         </stripe-elements>
       </ClientOnly>
       <div class="btn-wrapper">
-        <button class="btn" @click="submit">
+        <button class="primary-button--reverse" @click="submit">
           Purchase
         </button>
       </div>
@@ -89,8 +89,10 @@ export default {
 };
 </script>
 <style lang="scss">
+@import '~/styles/variables.scss';
+
 .stripe {
-  border-top: 2px solid #fff;
+  border-top: 2px solid $white;
   padding: 1.5em;
 }
 
@@ -98,7 +100,7 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 0 2em;
-  color: #fff;
+  color: $white;
 }
 
 .sidebar__footer {
@@ -109,17 +111,5 @@ export default {
   display: flex;
   justify-content: space-around;
   margin-bottom: 2em;
-}
-
-.btn {
-  background: #fff;
-  width: 200px;
-  color: #5469d4;
-  border: 1px solid #fff;
-  padding: 0.4em;
-  border-radius: 3px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 0.3em;
 }
 </style>

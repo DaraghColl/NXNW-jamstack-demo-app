@@ -1,0 +1,39 @@
+@import '~/styles/variables.scss';
+
+/** button **/
+.primary-button {
+    background: $primary;
+    color: $white;
+    border: 2px solid $primary;
+    padding: 0.4em;
+    min-width: 100px;
+    border-radius: $border-light;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        background: $white;
+        color: $primary;
+        border: 2px solid $primary;
+        transition: 0.3s;
+    }
+}
+
+.primary-button--reverse {
+    background: $white;
+    color: $primary;
+    border: 2px solid $white;
+    border-radius: $border-light;
+    padding: 0.4em;
+    min-width: 100px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        background: $primary;
+        color: $white;
+        border: 2px solid $white;
+        transition: 0.3s;
+    }
+}

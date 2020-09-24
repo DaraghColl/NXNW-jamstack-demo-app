@@ -26,6 +26,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~/styles/variables.scss';
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -43,7 +45,7 @@ export default {
   transition: 0.5s;
 
   &:hover {
-    border-bottom: 4px solid #5469d4;
+    border-bottom: 4px solid $primary;
     transition: 0.5s;
     cursor: pointer;
   }
@@ -52,7 +54,7 @@ export default {
 .nav {
   display: flex;
   align-items: center;
-  @media (max-width: 768px) {
+  @media (max-width: $screen-sm) {
     width: 100%;
     justify-content: space-around;
     .nav-item {
@@ -62,7 +64,7 @@ export default {
 }
 
 .logo {
-  @media (max-width: 768px) {
+  @media (max-width: $screen-sm) {
     display: none;
   }
 }

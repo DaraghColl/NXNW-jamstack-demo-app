@@ -1,7 +1,11 @@
 import DefaultLayout from '~/layouts/Default.vue'
 
+// state management
 import Vuex from 'vuex';
 import store from './store/index';
+
+// styles
+import '~/styles/global.scss';
 
 export default function (Vue, {
   appOptions,

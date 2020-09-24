@@ -36,7 +36,7 @@
           v-model="formData.message"
         ></textarea>
         <div class="submit-form">
-          <button type="submit">Send</button>
+          <button class="primary-button" type="submit">Send</button>
         </div>
       </form>
     </div>
@@ -83,8 +83,10 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~/styles/variables.scss';
+
 .contact {
-  max-width: 768px;
+  max-width: $screen-sm;
   margin: 0 auto;
   h1 {
     text-align: center;
@@ -99,19 +101,15 @@ export default {
         text-align: center;
       }
 
-      .form__label {
-        // visibility: hidden;
-      }
-
       .form__item {
         margin-bottom: 1em;
         background: inherit;
         color: inherit;
         border: none;
-        border-bottom: 2px solid #ccc;
+        border-bottom: 2px solid $grey_light;
         padding: 10px;
         &:focus {
-          border-bottom: 2px solid #5469d4;
+          border-bottom: 2px solid $primary;
           transition: 0.8s;
           outline: none;
         }
@@ -120,15 +118,6 @@ export default {
       .submit-form {
         display: flex;
         justify-content: flex-end;
-        button {
-          background: #5469d4;
-          color: #fff;
-          border: 1px solid #5469d4;
-          padding: 0.7em 1em;
-          width: 100px;
-          border-radius: 3px;
-          cursor: pointer;
-        }
       }
     }
   }

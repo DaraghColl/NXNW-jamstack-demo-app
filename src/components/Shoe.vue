@@ -9,7 +9,7 @@
       <h3 class="shoe__description">{{ shoe.description }}</h3>
       <div class="shoe__info-footer">
         <h4 class="shoe__price">Price: {{ shoe.price }}</h4>
-        <button class="shoe__button" v-on:click="addItemToCart(shoe)">
+        <button class="primary-button" v-on:click="addItemToCart(shoe)">
           Add to Cart
         </button>
       </div>
@@ -48,6 +48,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~/styles/variables.scss';
+
 .shoe {
   transform: translateY(-500px);
   transition: 1.5s;
@@ -55,10 +57,9 @@ export default {
   justify-content: space-around;
   align-items: center;
   margin-bottom: 2em;
-  background: #fff;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  border-radius: 5px;
+  background: $white;
+  box-shadow: $shadow;
+  border-radius: $border-medium;
   padding: 1em;
 
   &:hover .shoe__image {
@@ -66,7 +67,7 @@ export default {
     transition: 0.5s;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $screen-sm) {
     flex-direction: column;
   }
 
@@ -80,7 +81,7 @@ export default {
   .shoe__image-bubble {
     width: 170px;
     height: 170px;
-    background: #5469d4;
+    background: $primary;
     position: absolute;
     border-radius: 50%;
     z-index: 1;
@@ -95,7 +96,11 @@ export default {
     font-weight: 600;
   }
 
-  @media (max-width: 768px) {
+  .shoe__price {
+    margin-right: 0.4em;
+  }
+
+  @media (max-width: $screen-sm) {
     .shoe__title,
     .shoe__description {
       text-align: center;
@@ -106,16 +111,6 @@ export default {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    .shoe__button {
-      background: #5469d4;
-      color: #fff;
-      border: 1px solid #5469d4;
-      padding: 0.4em;
-      border-radius: 3px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-left: 1em;
-    }
   }
 }
 

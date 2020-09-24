@@ -9,7 +9,7 @@
       <h4 class="item__price">Price: {{ item.price }}</h4>
 
       <button
-        class="item__button"
+        class="primary-button--reverse"
         v-on:click="
           removeFromCart(item);
           toast('Item removed from cart');
@@ -37,12 +37,14 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~/styles/variables.scss';
+
 .item {
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-bottom: 2em;
-  border-radius: 5px;
+  border-radius: $border-medium;
   padding: 0.5em;
 
   .item__image {
@@ -55,7 +57,7 @@ export default {
   .item__image-bubble {
     width: 80px;
     height: 80px;
-    background: #fff;
+    background: $white;
     position: absolute;
     border-radius: 50%;
     z-index: 1;
@@ -66,25 +68,14 @@ export default {
   .item__title {
     margin: auto 0;
     font-size: 1em;
-    color: #fff;
+    color: $white;
   }
 
   .item__price {
     margin: 0;
     font-weight: 600;
     font-size: 0.8em;
-    color: #fff;
-  }
-
-  .item__button {
-    background: #fff;
-    color: #5469d4;
-    border: 1px solid #fff;
-    padding: 0.4em;
-    border-radius: 3px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 0.3em;
+    color: $white;
   }
 }
 </style>

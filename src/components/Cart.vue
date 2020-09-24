@@ -51,6 +51,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~/styles/variables.scss';
+
 .slide-enter-active,
 .slide-leave-active {
   transition: transform 0.2s ease;
@@ -64,16 +66,15 @@ export default {
 
 .sidebar__panel {
   overflow-y: auto;
-  background-color: #5469d4;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  background-color: $primary;
+  box-shadow: $shadow;
   position: fixed;
   left: 0;
   top: 0;
   height: 100vh;
   z-index: 999;
-  width: 30vw;
-  @media (max-width: 768px) {
+  width: 70vw;
+  @media (max-width: $screen-sm) {
     width: 100%;
     height: 100%;
   }
@@ -84,10 +85,10 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid $white;
 
   h4 {
-    color: #fff;
+    color: $white;
   }
   .sidebar__close {
     cursor: pointer;
@@ -96,10 +97,14 @@ export default {
 
 .sidebar__body {
   min-height: 50px;
+  display: flex;
+  @media (max-width: $screen-xs) {
+    flex-direction: column;
+  }
 }
 
 .cart-empty {
-  color: #fff;
+  color: $white;
   text-align: center;
 }
 </style>

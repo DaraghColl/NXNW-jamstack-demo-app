@@ -58,6 +58,8 @@ query product {
 </page-query>
 
 <style lang="scss">
+@import '~/styles/variables.scss';
+
 .home-links a {
   margin-right: 1rem;
 }
@@ -80,13 +82,13 @@ query product {
   font-weight: bold;
   line-height: 2em;
   font-size: 20px;
-  border-radius: 5px;
+  border-radius: $border-medium;
 }
 
 .landing-cover {
   z-index: 2000;
   position: absolute;
-  background: #5469d4;
+  background: $primary;
   height: 100vh;
   width: 100vw;
   top: 0;
