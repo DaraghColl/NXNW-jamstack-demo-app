@@ -6,26 +6,33 @@
         id="contact-form"
         class="contact__form"
         name="contact"
+        autocomplete="off"
         @submit.prevent="sendEmail"
       >
+        <label for="contact_message" class="form__label">Name</label>
         <input
+          id="contact_name"
           class="form__item"
           type="text"
           name="from_name"
-          placeholder="Name"
+          placeholder="name"
           v-model="formData.name"
         />
+        <label for="contact_message" class="form__label">Email</label>
         <input
+          id="contact_email"
           class="form__item"
           type="email"
           name="from_email"
-          placeholder="Email"
+          placeholder="email"
           v-model="formData.email"
         />
+        <label for="contact_message" class="form__label">Message</label>
         <textarea
+          id="contact_message"
           class="form__item"
           name="message"
-          placeholder="Message"
+          placeholder="message"
           v-model="formData.message"
         ></textarea>
         <div class="submit-form">
@@ -90,6 +97,10 @@ export default {
       width: 100%;
       h3 {
         text-align: center;
+      }
+
+      .form__label {
+        visibility: hidden;
       }
 
       .form__item {
