@@ -49,7 +49,7 @@ query product {
         id,
         title,
         description,
-        image,
+        image (width: 600, height: 474, quality: 75),
         price
       }
     }
