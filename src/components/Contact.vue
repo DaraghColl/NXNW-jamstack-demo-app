@@ -100,7 +100,7 @@ export default {
       }
 
       .form__label {
-        visibility: hidden;
+        // visibility: hidden;
       }
 
       .form__item {
