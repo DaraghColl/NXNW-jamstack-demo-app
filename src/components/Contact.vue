@@ -18,6 +18,7 @@
           placeholder="name"
           v-model="formData.name"
         />
+        <label for="contact_email" class="form__label">Email</label>
         <input
           id="contact_email"
           class="form__item"
