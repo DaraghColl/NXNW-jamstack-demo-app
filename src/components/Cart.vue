@@ -123,7 +123,7 @@ export default {
   }
 
   h4 {
-    color: #000;
+    color: $black;
     margin: 0;
   }
   .sidebar__close {
@@ -138,7 +138,7 @@ export default {
 }
 
 .cart-empty {
-  color: #000;
+  color: $black;
   text-align: center;
 }
 </style>

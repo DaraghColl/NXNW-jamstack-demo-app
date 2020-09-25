@@ -17,23 +17,8 @@
         border: 2px solid $primary;
         transition: 0.3s;
     }
-}
 
-.primary-button--reverse {
-    background: $white;
-    color: $primary;
-    border: 2px solid $primary;
-    border-radius: $border-medium;
-    padding: 0.4em;
-    min-width: 100px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
-
-    &:hover {
-        background: $primary;
-        color: $white;
-        border: 2px solid $primary;
-        transition: 0.3s;
+    &:focus {
+        outline: none;
     }
 }

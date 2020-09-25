@@ -56,7 +56,7 @@ export default {
   text-decoration: none;
   border-bottom: 4px solid transparent;
   font-weight: bold;
-  color: #000;
+  color: $black;
   margin-left: 20px;
   transition: 0.5s;
 

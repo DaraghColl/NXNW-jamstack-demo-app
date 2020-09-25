@@ -6,7 +6,7 @@
         <span>{{ amount }}</span>
       </div>
       <button
-        class="primary-button--reverse"
+        class="payment__checkout-button"
         v-if="!purchase"
         @click="openPayment()"
       >
@@ -107,10 +107,21 @@ export default {
       margin-bottom: 0.5em;
     }
 
-    .primary-button--reverse {
-      background: #000;
-      border: 2px solid #000;
+    .payment__checkout-button {
+      background: $black;
+      border: 2px solid $black;
       color: $white;
+      border-radius: $border-medium;
+      padding: 0.4em;
+      min-width: 100px;
+      font-weight: bold;
+      transition: 0.3s;
+      width: 100%;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+      }
     }
   }
 
@@ -119,8 +130,7 @@ export default {
   }
 }
 
-.primary-button,
-.primary-button--reverse {
+.primary-button {
   width: 100%;
 }
 </style>
