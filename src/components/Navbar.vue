@@ -7,21 +7,18 @@
       <g-link class="nav-item" to="/#store">STORE</g-link>
       <g-link class="nav-item" to="/blog">BLOG</g-link>
       <g-link class="nav-item" to="/contact">CONTACT</g-link>
-      <!-- <span class="nav-item" v-on:click="toggleCart(!cartStatus)"
-        >🛒 <span>{{ items.length }}</span></span
-      > -->
-      <g-image
-        id="nav_cart"
-        class="nav-item cart"
-        src="/icons/cart.svg"
-        alt="cart"
-        v-on:click="
-          toggleCart(!cartStatus);
-          getPoistion($event);
-        "
-      >
-        <span>{{ items.length }}</span></g-image
-      >
+      <div class="nav__cart-wrapper">
+        <g-image
+          class="nav-item cart"
+          src="/icons/cart.svg"
+          alt="cart"
+          v-on:click="
+            toggleCart(!cartStatus);
+            getPoistion($event);
+          "
+        />
+        <span class="cart-items-amount">{{ items.length }}</span>
+      </div>
     </nav>
   </header>
 </template>
@@ -77,11 +74,19 @@ export default {
       margin-left: 0;
     }
   }
+
+  .nav__cart-wrapper {
+    display: flex;
+  }
 }
 
 .logo {
   @media (max-width: $screen-sm) {
     display: none;
   }
+}
+
+.cart-items-amount {
+  font-weight: bold;
 }
 </style>
