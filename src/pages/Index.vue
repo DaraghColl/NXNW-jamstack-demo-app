@@ -34,6 +34,8 @@ export default {
     setTimeout(() => {
       cover.classList.add('animate-up');
     }, 100);
+    const navCart = document.getElementById('nav_cart');
+    console.log(navCart.getBoundingClientRect());
   },
   metaInfo: {
     title: 'Hello, world!',

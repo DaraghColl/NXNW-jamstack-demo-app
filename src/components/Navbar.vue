@@ -7,8 +7,17 @@
       <g-link class="nav-item" to="/#store">STORE</g-link>
       <g-link class="nav-item" to="/blog">BLOG</g-link>
       <g-link class="nav-item" to="/contact">CONTACT</g-link>
-      <span class="nav-item" v-on:click="toggleCart(!cartStatus)"
+      <!-- <span class="nav-item" v-on:click="toggleCart(!cartStatus)"
         >🛒 <span>{{ items.length }}</span></span
+      > -->
+      <g-image
+        id="nav_cart"
+        class="nav-item cart"
+        src="/icons/cart.svg"
+        alt="cart"
+        v-on:click="toggleCart(!cartStatus)"
+      >
+        <span>{{ items.length }}</span></g-image
       >
     </nav>
   </header>
@@ -58,7 +67,7 @@ export default {
     width: 100%;
     justify-content: space-around;
     .nav-item {
-      margin: 0;
+      margin-left: 0;
     }
   }
 }

@@ -1,15 +1,17 @@
 <template>
-  <div class="stripe">
-    <div class="sidebar__footer__total">
-      <h4>Total</h4>
-      <h4>65</h4>
-    </div>
-    <div class="sidebar__footer">
-      <div class="btn-wrapper">
-        <button class="primary-button--reverse" @click="openPayment()">
-          Checkout
-        </button>
+  <div class="payment">
+    <div class="payment__summary">
+      <div class="payment__total">
+        <span>Total</span>
+        <span>{{ amount }}</span>
       </div>
+      <button
+        class="primary-button--reverse"
+        v-if="!purchase"
+        @click="openPayment()"
+      >
+        Checkout
+      </button>
     </div>
     <div v-if="purchase">
       <ClientOnly>
@@ -23,8 +25,8 @@
         >
         </stripe-elements>
       </ClientOnly>
-      <div class="btn-wrapper">
-        <button class="primary-button--reverse" @click="submit">
+      <div class="payment__purchase">
+        <button class="primary-button" @click="submit">
           Purchase
         </button>
       </div>
@@ -88,28 +90,37 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~/styles/variables.scss';
 
-.stripe {
+.payment {
   border-top: 2px solid $white;
-  padding: 1.5em;
+
+  .payment__summary {
+    padding-top: 1em;
+    padding: 0.5em;
+
+    .payment__total {
+      display: flex;
+      justify-content: space-around;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+
+    .primary-button--reverse {
+      background: #000;
+      border: 2px solid #000;
+      color: $white;
+    }
+  }
+
+  .payment__purchase {
+    padding: 0.5em;
+  }
 }
 
-.sidebar__footer__total {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 2em;
-  color: $white;
-}
-
-.sidebar__footer {
-  padding: 0 20px;
-}
-
-.btn-wrapper {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 2em;
+.primary-button,
+.primary-button--reverse {
+  width: 100%;
 }
 </style>

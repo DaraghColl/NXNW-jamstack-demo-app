@@ -7,7 +7,7 @@
     border: 2px solid $primary;
     padding: 0.4em;
     min-width: 100px;
-    border-radius: $border-light;
+    border-radius: $border-medium;
     transition: 0.3s;
     cursor: pointer;
 
@@ -22,8 +22,8 @@
 .primary-button--reverse {
     background: $white;
     color: $primary;
-    border: 2px solid $white;
-    border-radius: $border-light;
+    border: 2px solid $primary;
+    border-radius: $border-medium;
     padding: 0.4em;
     min-width: 100px;
     font-weight: bold;
@@ -33,7 +33,7 @@
     &:hover {
         background: $primary;
         color: $white;
-        border: 2px solid $white;
+        border: 2px solid $primary;
         transition: 0.3s;
     }
 }

@@ -3,10 +3,15 @@
     <transition name="slide">
       <div v-if="cartStatus" class="sidebar__panel">
         <div class="sidebar__header">
-          <h4>Your Items</h4>
-          <span class="sidebar__close" v-on:click="toggleCart(false)">✖️</span>
+          <span class="sidebar__items">Items {{ items.length }}</span>
+          <g-image
+            class="sidebar__close"
+            src="/icons/close.svg"
+            alt="close cart"
+            v-on:click="toggleCart(false)"
+          />
         </div>
-        <div class="sidebar__body">
+        <div class="sidebar__body" v-if="items.length">
           <CartItems
             v-for="item in items"
             :key="item.id"
@@ -17,9 +22,9 @@
         <div v-if="items.length">
           <Payment :items="items" :cartOpen="cartStatus" />
         </div>
-        <h1 class="cart-empty" v-else>
+        <h4 class="cart-empty" v-if="!items.length">
           Cart is Empty
-        </h1>
+        </h4>
       </div>
     </transition>
   </div>
@@ -60,35 +65,37 @@ export default {
 
 .slide-enter,
 .slide-leave-to {
-  transform: translateX(-100%);
+  transform: translateX(100%);
   transition: all 150ms ease-in 0s;
 }
 
 .sidebar__panel {
   overflow-y: auto;
-  background-color: $primary;
-  box-shadow: $shadow;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100vh;
-  z-index: 999;
-  width: 70vw;
-  @media (max-width: $screen-sm) {
-    width: 100%;
-    height: 100%;
-  }
+  background-color: $white;
+  box-shadow: -1px -1px 14px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  position: absolute;
+  right: 100px;
+  top: 60px;
+  z-index: 4000;
+  width: 300px;
+  padding-bottom: 1em;
 }
 
 .sidebar__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
-  border-bottom: 2px solid $white;
+  padding: 0.5em;
+  border-bottom: 2px solid $grey_lightest;
+
+  .sidebar__items {
+    font-weight: bold;
+  }
 
   h4 {
-    color: $white;
+    color: #000;
+    margin: 0;
   }
   .sidebar__close {
     cursor: pointer;
@@ -96,15 +103,13 @@ export default {
 }
 
 .sidebar__body {
-  min-height: 50px;
   display: flex;
-  @media (max-width: $screen-xs) {
-    flex-direction: column;
-  }
+  flex-direction: column;
+  border-bottom: 2px solid $grey_lightest;
 }
 
 .cart-empty {
-  color: $white;
+  color: #000;
   text-align: center;
 }
 </style>
