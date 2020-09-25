@@ -80,6 +80,12 @@ export default {
   z-index: 4000;
   width: 300px;
   padding-bottom: 1em;
+
+  @media (max-width: $screen-sm) {
+    right: 5%;
+    left: 5%;
+    width: 90%;
+  }
 }
 
 .sidebar__header {
