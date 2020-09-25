@@ -55,7 +55,7 @@ export default {
           this.$refs.cart &&
           window.innerWidth > 992
         ) {
-          const posX = action.payload.x - 265;
+          const posX = action.payload.x - 245;
           this.$refs.cart.style.left = `${posX}px`;
         }
       },

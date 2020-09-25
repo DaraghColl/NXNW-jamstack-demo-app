@@ -5,8 +5,7 @@
     </strong>
     <nav class="nav">
       <g-link class="nav-item" to="/#store">STORE</g-link>
-      <g-link class="nav-item" to="/blog">BLOG</g-link>
-      <g-link class="nav-item" to="/contact">CONTACT</g-link>
+      <g-link class="nav-item" to="/#contact-section">CONTACT</g-link>
       <div class="nav__cart-wrapper">
         <g-image
           class="nav-item cart"

@@ -20,20 +20,26 @@ export default function (Vue, {
   // meta 
   head.meta.push({
     key: 'og:title',
-    name: 'title',
     property: 'og:title',
+    name: 'title',
     content: 'nxnwtech jamstack'
   })
   head.meta.push({
     key: 'og:description',
-    name: 'description',
     property: "og:description",
+    name: 'description',
     content: 'nxnwtech jamstack talk and demo'
   })
   head.meta.push({
+    key: 'og:keywords',
+    property: 'og:keywords',
+    name: 'keywords',
+    content: 'Jamstack,Gridsome,Vue,Vue.js,Forestry,Forestry.io'
+  })
+  head.meta.push({
     key: 'og:url',
-    name: 'url',
     property: "og:url",
+    name: 'url',
     content: 'https://nxnw-jamstack.netlify.app/'
   })
 }

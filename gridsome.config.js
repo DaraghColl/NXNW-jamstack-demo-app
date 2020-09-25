@@ -1,5 +1,6 @@
 module.exports = {
-  siteName: 'Gridsome',
+  siteName: 'NXNW Jamstack',
+  siteDescription: 'NXNW Jamstack Demo Site',
   plugins: [{
       use: '@gridsome/vue-remark',
       options: {

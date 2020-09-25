@@ -36,7 +36,7 @@ export default {
     }, 100);
   },
   metaInfo: {
-    title: 'Hello, world!',
+    title: 'Home',
   },
 };
 </script>
