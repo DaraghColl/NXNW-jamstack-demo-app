@@ -57,9 +57,9 @@ export default {
   }),
   methods: {
     sendEmail(e) {
-      let service_id = 'default_service';
-      let user_id = process.env.GRIDSOME_EMAIL_JS_USER_ID;
-      let template_id = process.env.GRIDSOME_EMAIL_JS__TEMPLATE_ID;
+      const service_id = 'default_service';
+      const user_id = process.env.GRIDSOME_EMAIL_JS_USER_ID;
+      const template_id = process.env.GRIDSOME_EMAIL_JS__TEMPLATE_ID;
 
       emailjs.sendForm(service_id, template_id, e.target, user_id).then(
         result => {

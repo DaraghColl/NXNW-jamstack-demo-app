@@ -35,13 +35,11 @@
 </template>
 
 <script>
-// import { StripeElements } from 'vue-stripe-checkout';
 import axios from 'axios';
 
 export default {
   props: ['items', ' cartOpen'],
   components: {
-    // StripeElements,
     StripeElements: () =>
       import('vue-stripe-checkout')
         .then(m => m.StripeElements)
@@ -50,12 +48,14 @@ export default {
   data: () => ({
     loading: false,
     amount: 1000,
-    publishableKey:
-      'pk_test_51HRkVxKXiyesRv3EBhW0ssXLnm1BHwXzZgwVq0twmuKi8oCGY7SUO2gsGPtHekK25dYj0G0kiZAH3X4kL6oP5ndE00188fSOOX',
+    publishableKey: process.env.GRIDSOME_STRIPE_PUB,
     token: null,
     charge: null,
     purchase: false,
   }),
+  mounted() {
+    console.log(this.publishableKey);
+  },
   methods: {
     openPayment() {
       this.purchase = true;

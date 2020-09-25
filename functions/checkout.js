@@ -1,6 +1,5 @@
-const stripe = require('stripe')(
-  'sk_test_51HRkVxKXiyesRv3Eq6hpJBaTulj7mxAruOtSnAPQReB2dluVYbR48fal0mlOj9yfdcKUfqX907olqLENSaleiv7m00Hw2kklcj'
-);
+const stripePrivateKey = process.env.STRIPE_PRK;
+const stripe = require('stripe')(stripePrivateKey);
 
 exports.handler = async (event, context) => {
   const data = JSON.parse(event.body);
@@ -9,7 +8,7 @@ exports.handler = async (event, context) => {
     currency: 'eur',
     source: 'tok_us',
     amount: data.amount,
-    description: 'first checkout',
+    description: 'Payment from jamstack website',
   });
 
   return {
