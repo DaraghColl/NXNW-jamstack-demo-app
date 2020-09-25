@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar">
     <transition name="slide">
-      <div v-if="cartStatus" class="sidebar__panel">
+      <div v-if="cartStatus" class="sidebar__panel" id="cart" ref="cart">
         <div class="sidebar__header">
           <span class="sidebar__items">Items {{ items.length }}</span>
           <g-image
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions, mapState } from 'vuex';
 import Shoe from '~/components/Shoe.vue';
 import CartItems from '~/components/CartItems.vue';
 import Payment from '~/components/Payment.vue';
@@ -41,7 +41,26 @@ export default {
     CartItems,
     Payment,
   },
-  computed: mapGetters(['items', 'cartStatus']),
+  computed: {
+    ...mapGetters(['items', 'cartStatus', 'cartPosition']),
+    ...mapState(['cartPosition']),
+  },
+  created() {
+    // dyamically set cart position relative to cart nav item
+    this.$store.subscribeAction({
+      after: (action, state) => {
+        if (
+          action.type === 'setCartPosition' &&
+          !!this.cartStatus &&
+          this.$refs.cart &&
+          window.innerWidth > 992
+        ) {
+          const posX = action.payload.x - 265;
+          this.$refs.cart.style.left = `${posX}px`;
+        }
+      },
+    });
+  },
   methods: {
     ...mapActions(['toggleCart']),
     total() {
@@ -80,6 +99,10 @@ export default {
   z-index: 4000;
   width: 300px;
   padding-bottom: 1em;
+
+  @media (max-width: $screen-md) {
+    right: 20px;
+  }
 
   @media (max-width: $screen-sm) {
     right: 5%;

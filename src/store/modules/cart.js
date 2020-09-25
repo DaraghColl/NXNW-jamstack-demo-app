@@ -1,11 +1,16 @@
 const state = {
     items: [],
-    cartStatus: false
+    cartStatus: false,
+    cartPosition: {
+        x: 0,
+        y: 0
+    }
 };
 
 const getters = {
     items: (state) => state.items,
-    cartStatus: (state) => state.cartStatus
+    cartStatus: (state) => state.cartStatus,
+    cartPosition: (state) => state.cartPosition
 };
 
 const actions = {
@@ -41,6 +46,13 @@ const actions = {
     }, item) {
         commit('removeFromCart', item);
     },
+
+    // cart position
+    setCartPosition({
+        commit
+    }, position) {
+        commit('setCartPosition', position);
+    }
 };
 
 const mutations = {
@@ -56,6 +68,10 @@ const mutations = {
         state.items.splice(state.items.findIndex((element) => {
             return element.id === item.id;
         }), 1);
+    },
+
+    setCartPosition: (state, position) => {
+        state.positio = position;
     }
 };
 

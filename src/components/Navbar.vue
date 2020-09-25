@@ -15,7 +15,10 @@
         class="nav-item cart"
         src="/icons/cart.svg"
         alt="cart"
-        v-on:click="toggleCart(!cartStatus)"
+        v-on:click="
+          toggleCart(!cartStatus);
+          getPoistion($event);
+        "
       >
         <span>{{ items.length }}</span></g-image
       >
@@ -29,7 +32,11 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
   computed: mapGetters(['cartStatus', 'items']),
   methods: {
-    ...mapActions(['toggleCart']),
+    ...mapActions(['toggleCart', 'setCartPosition']),
+    getPoistion(event) {
+      const position = { x: event.x, y: event.y };
+      this.setCartPosition(position);
+    },
   },
 };
 </script>
