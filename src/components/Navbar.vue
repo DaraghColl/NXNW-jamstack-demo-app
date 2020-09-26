@@ -79,6 +79,9 @@ export default {
 
 .nav__logo {
   width: 80px;
+  @media (max-width: $screen-xs) {
+    display: none;
+  }
 }
 
 .cart-items-amount {
