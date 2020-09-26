@@ -12,7 +12,7 @@ module.exports = {
     {
       use: 'gridsome-plugin-vue-toasted',
       options: {
-        position: 'top-right',
+        position: 'top-center',
         singleton: true,
         duration: 1500,
       },
