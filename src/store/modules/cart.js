@@ -4,13 +4,15 @@ const state = {
     cartPosition: {
         x: 0,
         y: 0
-    }
+    },
+    cartAmount: 0
 };
 
 const getters = {
     items: (state) => state.items,
     cartStatus: (state) => state.cartStatus,
-    cartPosition: (state) => state.cartPosition
+    cartPosition: (state) => state.cartPosition,
+    cartAmount: (state) => state.cartAmount
 };
 
 const actions = {
@@ -54,6 +56,13 @@ const actions = {
         commit('clearCart')
     },
 
+    // calculate Cart Amount
+    calculateCartAmount({
+        commit
+    }) {
+        commit('calculateCartAmount')
+    },
+
     // cart position
     setCartPosition({
         commit
@@ -80,6 +89,22 @@ const mutations = {
     clearCart: (state) => {
         state.items = [];
     },
+
+    calculateCartAmount: (state) => {
+        if (state.items.length) {
+            state.cartAmount = state.items
+                .map(item => {
+                    return item.price;
+                })
+                .reduce((accumulator, currentValue) => {
+                    return accumulator + currentValue;
+                });
+        } else {
+            state.cartAmount = 0;
+        }
+    },
+
+
 
     setCartPosition: (state, position) => {
         state.positio = position;

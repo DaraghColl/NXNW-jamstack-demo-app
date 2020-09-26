@@ -46,6 +46,15 @@ export default {
     ...mapState(['cartPosition']),
   },
   created() {
+    // set payment amount
+    this.$store.subscribeAction({
+      after: (action, state) => {
+        const paymentActions = ['addToCart', 'removeFromCart', 'clearCart'];
+        if (paymentActions.includes(action.type)) {
+          this.calculateCartAmount();
+        }
+      },
+    });
     // dyamically set cart position relative to cart nav item
     this.$store.subscribeAction({
       after: (action, state) => {
@@ -62,14 +71,7 @@ export default {
     });
   },
   methods: {
-    ...mapActions(['toggleCart']),
-    total() {
-      items.forEach(element => {
-        let total;
-        total = total + element.price;
-        return total;
-      });
-    },
+    ...mapActions(['toggleCart', 'calculateCartAmount']),
   },
 };
 </script>

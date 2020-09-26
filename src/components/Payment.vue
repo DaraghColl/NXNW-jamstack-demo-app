@@ -3,7 +3,7 @@
     <div class="payment__summary">
       <div class="payment__total">
         <span>Total</span>
-        <span>{{ amount }}</span>
+        <span>{{ cartAmount }}</span>
       </div>
       <button
         class="payment__checkout-button"
@@ -18,7 +18,7 @@
         <stripe-elements
           ref="elementsRef"
           :pk="publishableKey"
-          :amount="amount"
+          :amount="cartAmount"
           locale="auto"
           @token="tokenCreated"
           @loading="loading = $event"
@@ -41,7 +41,7 @@
 
 <script>
 import axios from 'axios';
-import { mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   props: ['items', ' cartOpen'],
@@ -54,13 +54,17 @@ export default {
   },
   data: () => ({
     loading: false,
-    amount: 1000,
     publishableKey: process.env.GRIDSOME_STRIPE_PUB,
     token: null,
     charge: null,
     purchase: false,
     pendingPayment: false,
   }),
+
+  computed: {
+    ...mapGetters(['cartAmount']),
+  },
+
   methods: {
     ...mapActions(['toggleCart', 'clearCart']),
 
@@ -76,7 +80,7 @@ export default {
       this.token = token;
       this.charge = {
         source: 'tok_us',
-        amount: 1200,
+        amount: this.cartAmount,
         description: 'testing charge',
       };
       this.sendTokenToServer(this.charge);

@@ -26,7 +26,7 @@ export default {
   props: ['item'],
   computed: mapGetters(['items', 'cartStatus']),
   methods: {
-    ...mapActions(['addToCart', 'removeFromCart']),
+    ...mapActions(['removeFromCart']),
     toast(message) {
       this.$toasted.show(message);
     },
