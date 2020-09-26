@@ -25,11 +25,16 @@
         >
         </stripe-elements>
       </ClientOnly>
-      <div class="payment__purchase">
+      <div class="payment__purchase" v-if="!pendingPayment">
         <button class="primary-button" @click="submit">
           Purchase
         </button>
       </div>
+    </div>
+
+    <!-- loader -->
+    <div v-if="pendingPayment" class="spinner">
+      <div class="halfSpin"></div>
     </div>
   </div>
 </template>
@@ -40,7 +45,6 @@ import { mapActions } from 'vuex';
 
 export default {
   props: ['items', ' cartOpen'],
-  computed: mapActions(['clearCart']),
 
   components: {
     StripeElements: () =>
@@ -55,8 +59,11 @@ export default {
     token: null,
     charge: null,
     purchase: false,
+    pendingPayment: false,
   }),
   methods: {
+    ...mapActions(['toggleCart', 'clearCart']),
+
     openPayment() {
       this.purchase = true;
     },
@@ -75,6 +82,7 @@ export default {
       this.sendTokenToServer(this.charge);
     },
     sendTokenToServer(charge) {
+      this.pendingPayment = true;
       axios
         .post('/.netlify/functions/checkout', charge, {
           headers: {
@@ -83,12 +91,15 @@ export default {
         })
         .then(response => {
           this.response = JSON.stringify(response);
-          this.$toasted.show('payment Successfull');
+          this.$toasted.show('Payment Successfull');
+          this.pendingPayment = false;
+          this.toggleCart(false);
           this.clearCart();
         })
-        .catch(error => {
-          this.response = 'Error: ' + JSON.stringify(error);
-          this.$toasted.show('payment Error');
+        .catch(err => {
+          this.response = 'Error: ' + JSON.stringify(err);
+          this.$toasted.show('Payment Error');
+          this.pendingPayment = false;
         });
     },
   },

@@ -14,17 +14,13 @@ exports.handler = async (event, context) => {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({
-        msg: "Payment Success"
-      }),
+      body: 'success'
     };
 
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({
-        msg: "Payment Failure"
-      }),
+      body: 'error'
     };
   }
 };

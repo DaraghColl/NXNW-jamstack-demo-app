@@ -22,3 +22,32 @@
         outline: none;
     }
 }
+
+/** spinner **/
+.spinner {
+    text-align: center;
+    height: 50px;
+}
+
+.halfSpin {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 12.5px;
+    border-top-left-radius: 95px;
+    border-top-right-radius: 95px;
+    border: 10px solid #000;
+    border-bottom: 0;
+    transform-origin: bottom center;
+    animation: 1s infinite turner;
+}
+
+@keyframes turner {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
