@@ -97,7 +97,7 @@ export default {
 .contact {
   max-width: $screen-sm;
   margin: 0 auto;
-  padding-bottom: 20vh;
+  padding-bottom: 10vh;
   h1 {
     text-align: center;
   }
