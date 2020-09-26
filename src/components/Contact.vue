@@ -1,45 +1,54 @@
 <template>
   <section id="contact-section" class="contact">
     <h1 class="heading">Contact</h1>
-    <div class="contact-wrapper">
-      <form
-        id="contact-form"
-        class="contact__form"
-        name="contact"
-        autocomplete="off"
-        @submit.prevent="sendEmail"
-      >
-        <label for="contact_name" class="form__label">Name</label>
+    <form
+      id="contact-form"
+      class="contact__form"
+      name="contact"
+      autocomplete="off"
+      @submit.prevent="sendEmail"
+    >
+      <!-- name -->
+      <div class="float">
         <input
           id="contact_name"
           class="form__item"
           type="text"
           name="from_name"
-          placeholder="name"
+          required
           v-model="formData.name"
         />
-        <label for="contact_email" class="form__label">Email</label>
+        <label for="contact_name" class="form__label">Name</label>
+      </div>
+
+      <!-- email -->
+      <div class="float">
         <input
           id="contact_email"
           class="form__item"
           type="email"
           name="from_email"
-          placeholder="email"
+          required
           v-model="formData.email"
         />
-        <label for="contact_message" class="form__label">Message</label>
+        <label for="contact_email" class="form__label">Email</label>
+      </div>
+
+      <!-- message -->
+      <div class="float">
         <textarea
           id="contact_message"
-          class="form__item"
+          class="form__item form__message"
           name="message"
-          placeholder="message"
+          required
           v-model="formData.message"
         ></textarea>
-        <div class="submit-form">
-          <button class="primary-button" type="submit">Send</button>
-        </div>
-      </form>
-    </div>
+        <label for="contact_message" class="form__label">Message</label>
+      </div>
+      <div class="submit-form">
+        <button class="primary-button" type="submit">Send</button>
+      </div>
+    </form>
   </section>
 </template>
 
@@ -88,38 +97,70 @@ export default {
 .contact {
   max-width: $screen-sm;
   margin: 0 auto;
+  padding-bottom: 20vh;
   h1 {
     text-align: center;
   }
-  .contact-wrapper {
-    padding-bottom: 5vh;
-    .contact__form {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      h3 {
-        text-align: center;
-      }
 
-      .form__item {
-        margin-bottom: 1em;
-        background: inherit;
-        color: inherit;
-        border: none;
-        border-bottom: 2px solid $grey_light;
-        padding: 10px;
-        &:focus {
-          border-bottom: 2px solid $primary;
-          transition: 0.8s;
-          outline: none;
+  .float {
+    width: 100%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+    display: block;
+    padding-top: 0.9375rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+
+    .form__item {
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid #9e9e9e;
+      border-radius: 0;
+      outline: none;
+      height: 1em;
+      width: 100%;
+      font-size: 16px;
+      margin: 0 0 8px 0;
+      padding: 0 0 0.5em 0;
+
+      &:focus {
+        border-bottom: 2px solid $primary;
+        transition: 0.8s;
+        outline: none;
+      }
+      &:valid,
+      &:focus {
+        & ~ .form__label {
+          top: 0;
+          font-size: 10px;
+          color: $primary;
+          transition: 0.2s;
         }
       }
-
-      .submit-form {
-        display: flex;
-        justify-content: flex-end;
-      }
     }
+
+    .form__label {
+      width: 100%;
+      color: rgba(0, 0, 0, 0.42);
+      left: 0.75rem;
+      position: absolute;
+      top: 20px;
+      left: 0;
+      font-size: 1rem;
+      transition: 0.2s;
+
+      cursor: text;
+    }
+
+    .form__message {
+      height: 2em;
+    }
+  }
+
+  .submit-form {
+    display: flex;
+    justify-content: flex-end;
   }
 }
 </style>
