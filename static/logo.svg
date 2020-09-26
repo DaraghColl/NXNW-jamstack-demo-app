@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="70" viewBox="0 0 200 70">
+  <defs>
+    <clipPath id="clip-custom_1">
+      <rect width="200" height="70"/>
+    </clipPath>
+  </defs>
+  <g id="custom_1" data-name="custom – 1" clip-path="url(#clip-custom_1)">
+    <g id="Group_1" data-name="Group 1" transform="translate(0 -15)">
+      <rect id="Rectangle_1" data-name="Rectangle 1" width="56" height="56" rx="3" transform="translate(10 22)" fill="#5469d4"/>
+      <text id="J" transform="translate(31 66.5)" fill="#fff" font-size="40" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">J</tspan></text>
+    </g>
+    <g id="Group_2" data-name="Group 2" transform="translate(61 -15)">
+      <rect id="Rectangle_1-2" data-name="Rectangle 1" width="56" height="56" rx="3" transform="translate(10 22)" fill="#ba54d4"/>
+      <text id="A" transform="translate(26 66.5)" fill="#fff" font-size="40" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">A</tspan></text>
+    </g>
+    <g id="Group_3" data-name="Group 3" transform="translate(122 -15)">
+      <rect id="Rectangle_1-3" data-name="Rectangle 1" width="56" height="56" rx="3" transform="translate(10 22)" fill="#54c8d4"/>
+      <text id="M" transform="translate(20 66.5)" fill="#fff" font-size="40" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">M</tspan></text>
+    </g>
+  </g>
+</svg>

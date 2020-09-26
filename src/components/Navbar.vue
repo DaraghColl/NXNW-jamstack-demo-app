@@ -1,8 +1,6 @@
 <template>
   <header class="header">
-    <strong class="logo">
-      <g-link class="nav-item" to="/">JAMSTACK</g-link>
-    </strong>
+    <g-image class="nav__logo" src="/logo.svg" alt="logo" />
     <nav class="nav">
       <g-link class="nav-item" v-scroll-to="'#store'">STORE</g-link>
       <g-link class="nav-item" v-scroll-to="'#contact-section'">CONTACT</g-link>
@@ -79,10 +77,8 @@ export default {
   }
 }
 
-.logo {
-  @media (max-width: $screen-sm) {
-    display: none;
-  }
+.nav__logo {
+  width: 80px;
 }
 
 .cart-items-amount {
