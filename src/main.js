@@ -4,6 +4,9 @@ import DefaultLayout from '~/layouts/Default.vue'
 import Vuex from 'vuex';
 import store from './store/index';
 
+// scroll to
+import VueScrollTo from 'vue-scrollto'
+
 // styles
 import '~/styles/global.scss';
 
@@ -15,6 +18,10 @@ export default function (Vue, {
 
   Vue.use(Vuex);
   appOptions.store = store;
+
+  Vue.use(VueScrollTo, {
+    offset: -100,
+  });
 
 
   // meta 

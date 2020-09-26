@@ -4,8 +4,8 @@
       <g-link class="nav-item" to="/">JAMSTACK</g-link>
     </strong>
     <nav class="nav">
-      <g-link class="nav-item" to="/#store">STORE</g-link>
-      <g-link class="nav-item" to="/#contact-section">CONTACT</g-link>
+      <g-link class="nav-item" v-scroll-to="'#store'">STORE</g-link>
+      <g-link class="nav-item" v-scroll-to="'#contact-section'">CONTACT</g-link>
       <div class="nav__cart-wrapper">
         <g-image
           class="nav-item cart"
