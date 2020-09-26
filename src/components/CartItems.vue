@@ -24,7 +24,7 @@ import { mapGetters, mapActions } from 'vuex';
 
 export default {
   props: ['item'],
-  computed: mapGetters(['items', 'cartStatus']),
+  computed: mapGetters(['items']),
   methods: {
     ...mapActions(['removeFromCart']),
     toast(message) {

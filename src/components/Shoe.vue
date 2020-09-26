@@ -22,7 +22,7 @@ import { mapGetters, mapActions } from 'vuex';
 
 export default {
   props: ['shoe'],
-  computed: mapGetters(['items', 'cartStatus']),
+  computed: mapGetters(['items']),
   methods: {
     ...mapActions(['addToCart', 'removeFromCart']),
     addItemToCart(item) {
