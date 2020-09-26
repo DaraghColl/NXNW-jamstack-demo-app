@@ -115,7 +115,7 @@ export default {
     .form__item {
       background-color: transparent;
       border: none;
-      border-bottom: 1px solid #9e9e9e;
+      border-bottom: 2px solid $grey_light;
       border-radius: 0;
       outline: none;
       height: 1em;
@@ -133,7 +133,7 @@ export default {
       &:focus {
         & ~ .form__label {
           top: 0;
-          font-size: 10px;
+          font-size: 0.8em;
           color: $primary;
           transition: 0.2s;
         }
@@ -142,7 +142,7 @@ export default {
 
     .form__label {
       width: 100%;
-      color: rgba(0, 0, 0, 0.42);
+      color: $black;
       left: 0.75rem;
       position: absolute;
       top: 20px;

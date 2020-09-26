@@ -8,7 +8,7 @@
       <h2 class="shoe__title">{{ shoe.title }}</h2>
       <!-- <h3 class="shoe__description">{{ shoe.description }}</h3> -->
       <div class="shoe__info-footer">
-        <h4 class="shoe__price">Price: {{ shoe.price }}</h4>
+        <span class="shoe__price">Price: {{ shoe.price }}</span>
         <button class="primary-button" v-on:click="addItemToCart(shoe)">
           Add to Cart
         </button>
@@ -89,16 +89,13 @@ export default {
   }
 
   .shoe__title {
-    margin-bottom: 0;
+    margin-bottom: 0.5em;
     text-align: center;
-  }
-  .shoe__description {
-    margin-top: 0;
-    font-weight: 600;
   }
 
   .shoe__price {
     margin-right: 0.4em;
+    font-weight: bold;
   }
 
   @media (max-width: $screen-sm) {
