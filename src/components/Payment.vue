@@ -36,9 +36,12 @@
 
 <script>
 import axios from 'axios';
+import { mapActions } from 'vuex';
 
 export default {
   props: ['items', ' cartOpen'],
+  computed: mapActions(['clearCart']),
+
   components: {
     StripeElements: () =>
       import('vue-stripe-checkout')
@@ -53,9 +56,6 @@ export default {
     charge: null,
     purchase: false,
   }),
-  mounted() {
-    console.log(this.publishableKey);
-  },
   methods: {
     openPayment() {
       this.purchase = true;
@@ -64,6 +64,7 @@ export default {
       this.$refs.elementsRef.submit();
     },
 
+    // create token and payment
     tokenCreated(token) {
       this.token = token;
       this.charge = {
@@ -82,9 +83,12 @@ export default {
         })
         .then(response => {
           this.response = JSON.stringify(response);
+          this.$toasted.show('payment Successfull');
+          this.clearCart();
         })
         .catch(error => {
           this.response = 'Error: ' + JSON.stringify(error);
+          this.$toasted.show('payment Error');
         });
     },
   },

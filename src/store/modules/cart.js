@@ -47,6 +47,13 @@ const actions = {
         commit('removeFromCart', item);
     },
 
+    // clear cart
+    clearCart({
+        commit
+    }) {
+        commit('clearCart')
+    },
+
     // cart position
     setCartPosition({
         commit
@@ -68,6 +75,10 @@ const mutations = {
         state.items.splice(state.items.findIndex((element) => {
             return element.id === item.id;
         }), 1);
+    },
+
+    clearCart: (state) => {
+        state.items = [];
     },
 
     setCartPosition: (state, position) => {
