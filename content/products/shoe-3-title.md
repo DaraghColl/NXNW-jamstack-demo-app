@@ -1,6 +1,6 @@
 ---
 price: 45
-title: Shoe 3 Title
-description: Shoe 3 Description
+title: Addidas stars
+description: Addidas stars
 image: '/content/images/shoe-3.png'
 ---

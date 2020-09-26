@@ -1,6 +1,6 @@
 ---
 price: 60
-title: Shoe 2 Title
-description: Shoe 2 Description
+title: PUMA Special
+description: PUMA Special Edition
 image: '/content/images/shoe-2.png'
 ---

@@ -1,6 +1,6 @@
 ---
 price: 55
-title: Shoe 1 Title
-description: Shoe 1 Description
+title: Vans Old School
+description: Vans Old School
 image: '/content/images/shoe-1.png'
 ---

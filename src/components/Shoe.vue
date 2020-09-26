@@ -6,7 +6,7 @@
     </div>
     <div class="shoe__info">
       <h2 class="shoe__title">{{ shoe.title }}</h2>
-      <h3 class="shoe__description">{{ shoe.description }}</h3>
+      <!-- <h3 class="shoe__description">{{ shoe.description }}</h3> -->
       <div class="shoe__info-footer">
         <h4 class="shoe__price">Price: {{ shoe.price }}</h4>
         <button class="primary-button" v-on:click="addItemToCart(shoe)">
@@ -90,6 +90,7 @@ export default {
 
   .shoe__title {
     margin-bottom: 0;
+    text-align: center;
   }
   .shoe__description {
     margin-top: 0;
@@ -109,8 +110,14 @@ export default {
 
   .shoe__info-footer {
     display: flex;
-    justify-content: space-around;
     align-items: center;
+
+    @media (max-width: $screen-sm) {
+      flex-direction: column;
+      .shoe__price {
+        margin: 0 0 10px 0;
+      }
+    }
   }
 }
 
