@@ -72,20 +72,20 @@ export default {
   }
 
   .shoe__image {
-    max-width: 200px;
+    max-width: 180px;
     transition: 0.5s;
     position: relative;
     z-index: 100;
   }
 
   .shoe__image-bubble {
-    width: 170px;
-    height: 170px;
+    width: 153px;
+    height: 153px;
     background: $primary;
     position: absolute;
     border-radius: 50%;
     z-index: 1;
-    margin-left: 20px;
+    margin-left: 15px;
   }
 
   .shoe__title {
