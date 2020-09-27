@@ -62,7 +62,7 @@ export default {
           action.type === 'setCartPosition' &&
           !!this.cartStatus &&
           this.$refs.cart &&
-          window.innerWidth > 992
+          window.innerWidth > 1200
         ) {
           const posX = action.payload.x - 245;
           this.$refs.cart.style.left = `${posX}px`;
@@ -102,11 +102,11 @@ export default {
   width: 300px;
   padding-bottom: 1em;
 
-  @media (max-width: $screen-md) {
-    right: 20px;
+  @media (max-width: $screen-lg) {
+    right: 2%;
   }
 
-  @media (max-width: $screen-sm) {
+  @media (max-width: $screen-xs) {
     right: 5%;
     left: 5%;
     width: 90%;
