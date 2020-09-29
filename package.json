@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "@gridsome/vue-remark": "^0.2.4",
-    "@sendgrid/mail": "^7.2.6",
     "axios": "^0.20.0",
     "emailjs-com": "^2.6.3",
     "gridsome": "^0.7.0",
