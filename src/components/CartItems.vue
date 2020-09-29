@@ -53,6 +53,10 @@ export default {
     margin-top: 10px;
   }
 
+  .item__info {
+    width: 40%;
+  }
+
   .item__title {
     margin: auto 0;
     font-size: 1em;
