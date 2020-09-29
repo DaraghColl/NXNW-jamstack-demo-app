@@ -95,7 +95,7 @@ export default {
         })
         .then(response => {
           this.response = JSON.stringify(response);
-          this.$toasted.show('Payment Successfull');
+          this.$toasted.show('Payment Successful');
           this.pendingPayment = false;
           this.toggleCart(false);
           this.clearCart();
