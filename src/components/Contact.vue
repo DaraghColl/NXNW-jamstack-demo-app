@@ -182,7 +182,7 @@ export default {
     }
 
     .form__message {
-      height: 1.5em;
+      height: 1.7em;
 
       &:valid,
       &:focus {
