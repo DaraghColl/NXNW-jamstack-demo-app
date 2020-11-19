@@ -1,14 +1,28 @@
-# Default starter for Gridsome
+# NXNW Jamstack Demo App
+
+# Gridsome, Netlify Functions, Stripe, Forestry io, Email JS
 
 This is the project you get when you run `gridsome create new-project`.
 
-### 1. Install Gridsome CLI tool if you don't have
+### 1. Install application dependencies
 
-`npm install --global @gridsome/cli`
+`npm install`
 
-### 2. Create a Gridsome project
+### 2. Run a Gridsome project
 
-1. `gridsome create my-gridsome-site` to install default starter
-2. `cd my-gridsome-site` to open the folder
-3. `gridsome develop` to start a local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
+`gridsome develop` to start a local dev server at `http://localhost:8080`
+
+### 2. Run a Gridsome build
+
+`gridsome build`
+
+### Environment Variables
+
+1. GRIDSOME_EMAIL_JS_USER_ID
+2. GRIDSOME_EMAIL_JS\_\_TEMPLATE_ID
+3. GRIDSOME_STRIPE_PUB
+4. STRIPE_PRK
+
+### Forestry Setup
+
+Set up forestry account, and import site from github. Config is in '.forestry' folder
